@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent thisIntent = getIntent();
-        Customer currentCust = (Customer) thisIntent.getSerializableExtra("Customer");
+        final Customer currentCust = (Customer) thisIntent.getSerializableExtra("Customer");
         int customerID = currentCust.getId();
 
         accounts = new ArrayList<>();
@@ -55,16 +55,18 @@ public class MainActivity extends AppCompatActivity {
         paypersonbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent payperson = new Intent(MainActivity.this, PayPersonActivity.class);
-                startActivity(payperson);
+                Intent my = new Intent(MainActivity.this, PayPersonActivity.class);
+                my.putExtra("Customer", currentCust);
+                startActivity(my);
             }
         });
 
         paybillbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent paybill = new Intent(MainActivity.this, PayBillActivity.class);
-                startActivity(paybill);
+                Intent my = new Intent(MainActivity.this, PayBillActivity.class);
+                my.putExtra("Customer", currentCust);
+                startActivity(my);
             }
         });
 
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://ad13d77b.ngrok.io/showaccounts.php?id="+customerID)
+                        .url("http://c714cdae.ngrok.io/showaccounts.php?id="+customerID)
                         .build();
                 try {
                     Response response = client.newCall(request).execute();

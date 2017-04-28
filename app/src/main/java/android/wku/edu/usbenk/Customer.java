@@ -62,4 +62,7 @@ public class Customer implements Serializable{
         this.loginDate = loginDate;
     }
 
+    public String toString() {
+        return name;
+    }
 }

@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://ad13d77b.ngrok.io/checklogin.php?username="+username+"&&password="+password)
+                        .url("http://c714cdae.ngrok.io/checklogin.php?username="+username+"&&password="+password)
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
