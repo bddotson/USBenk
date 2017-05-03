@@ -23,7 +23,7 @@ import okhttp3.Response;
 
 public class PayPersonActivity extends AppCompatActivity {
 
-    private List<Account> accounts;
+    private ArrayList<Account> accounts;
     private List<Customer> people;
 
     @Override
@@ -48,7 +48,7 @@ public class PayPersonActivity extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://c714cdae.ngrok.io/showpeople.php?id="+customerID)
+                        .url(getString(R.string.server)+"/showpeople.php?id="+customerID)
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -108,7 +108,7 @@ public class PayPersonActivity extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://c714cdae.ngrok.io/showaccounts.php?id="+customerID)
+                        .url(getString(R.string.server)+"/showaccounts.php?id="+customerID)
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -150,9 +150,7 @@ public class PayPersonActivity extends AppCompatActivity {
         if(result)
         {
             ListView lv = (ListView) findViewById(R.id.listView2);
-            ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(
-                    this, android.R.layout.simple_list_item_1, accounts
-            );
+            CustomAdapter arrayAdapter = new CustomAdapter(this, this.accounts);
             lv.setAdapter(arrayAdapter);
 
         }

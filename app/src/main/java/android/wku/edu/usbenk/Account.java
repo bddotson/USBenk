@@ -63,7 +63,7 @@ public class Account implements Serializable{
     }
 
     public String toString() {
-        String toString = String.format("%-38s %40s", accountName, "$"+balance);
+        String toString = accountName+" - $"+balance;
         return toString;
     }
 }

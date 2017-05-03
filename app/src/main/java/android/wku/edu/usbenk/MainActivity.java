@@ -28,7 +28,7 @@ import static android.wku.edu.usbenk.R.id.paypersonbutton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Account> accounts;
+    private ArrayList<Account> accounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://c714cdae.ngrok.io/showaccounts.php?id="+customerID)
+                        .url(getString(R.string.server)+"/showaccounts.php?id="+customerID)
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
@@ -128,9 +128,7 @@ public class MainActivity extends AppCompatActivity {
         if(result)
         {
             ListView lv = (ListView) findViewById(R.id.listView);
-            ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(
-                    this, android.R.layout.simple_list_item_1, accounts
-            );
+            CustomAdapter arrayAdapter = new CustomAdapter(this, this.accounts);
             lv.setAdapter(arrayAdapter);
 
             TextView accountRefreshView = (TextView) findViewById(R.id.accountRefreshView);

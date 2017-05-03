@@ -30,7 +30,7 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </ScrollView>
 
     <ScrollView
@@ -45,7 +45,7 @@
         <ListView
             android:id="@+id/listView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </ScrollView>
 
     <TextView
@@ -63,22 +63,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pay"
-
         android:layout_below="@+id/errorText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/amountEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+
         android:gravity="center"
         android:hint="Payment Amount"
         android:inputType="number"
-        android:layout_marginTop="50dp"
+
         android:layout_below="@+id/scrollView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <TextView
         android:id="@+id/errorText"
@@ -86,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/amountEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+         />
 
 
 </RelativeLayout>
