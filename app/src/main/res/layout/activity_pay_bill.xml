@@ -29,6 +29,8 @@
 
         <ListView
             android:id="@+id/listView"
+            android:listSelector="@drawable/bg_list_item"
+            android:choiceMode="singleChoice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>
@@ -45,7 +47,9 @@
         <ListView
             android:id="@+id/listView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:listSelector="@drawable/bg_list_item"
+            android:choiceMode="singleChoice"/>
     </ScrollView>
 
     <TextView

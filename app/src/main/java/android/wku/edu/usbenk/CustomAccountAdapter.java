@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 
 
-public class CustomAdapter extends ArrayAdapter<Account> {
-    public CustomAdapter(Context context, ArrayList<Account> accounts) {
+public class CustomAccountAdapter extends ArrayAdapter<Account> {
+    public CustomAccountAdapter(Context context, ArrayList<Account> accounts) {
         super(context, 0, accounts);
     }
 

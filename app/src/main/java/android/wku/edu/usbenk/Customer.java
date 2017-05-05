@@ -13,6 +13,7 @@ public class Customer implements Serializable{
     private String username;
     private String password;
     private String loginDate;
+    private int selected;
 
     public Customer(int id, String name, String username, String password, String loginDate) {
         this.id = id;
@@ -64,5 +65,13 @@ public class Customer implements Serializable{
 
     public String toString() {
         return name;
+    }
+
+    public void setSelected(int selected) {
+        this.selected = selected;
+    }
+
+    public int getSelected() {
+        return selected;
     }
 }

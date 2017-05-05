@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +24,7 @@ import okhttp3.Response;
 public class PayBillActivity extends AppCompatActivity {
 
     private ArrayList<Account> accounts;
-    private List<Customer> billers;
+    private ArrayList<Customer> billers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +91,8 @@ public class PayBillActivity extends AppCompatActivity {
         if(result)
         {
             ListView lv2 = (ListView) findViewById(R.id.listView);
-            ArrayAdapter<Customer> arrayAdapter2 = new ArrayAdapter<Customer>(
-                    this, android.R.layout.simple_list_item_1, billers
+            CustomBillerAdapter arrayAdapter2 = new CustomBillerAdapter(
+                    this, billers
             );
             lv2.setAdapter(arrayAdapter2);
         }
@@ -152,7 +151,7 @@ public class PayBillActivity extends AppCompatActivity {
         if(result)
         {
             ListView lv = (ListView) findViewById(R.id.listView2);
-            CustomAdapter arrayAdapter = new CustomAdapter(this, this.accounts);
+            CustomAccountAdapter arrayAdapter = new CustomAccountAdapter(this, this.accounts);
             lv.setAdapter(arrayAdapter);
 
         }

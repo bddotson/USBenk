@@ -13,6 +13,7 @@ public class Account implements Serializable{
     private int balance;
     private String accountName;
     private String date;
+    private int selected;
 
     public Account(int id, int customerID, int balance, String accountName, String date) {
         this.id = id;
@@ -65,5 +66,13 @@ public class Account implements Serializable{
     public String toString() {
         String toString = accountName+" - $"+balance;
         return toString;
+    }
+
+    public int getSelected() {
+        return selected;
+    }
+
+    public void setSelected(int selected) {
+        this.selected = selected;
     }
 }

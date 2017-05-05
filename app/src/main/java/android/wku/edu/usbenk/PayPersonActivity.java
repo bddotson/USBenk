@@ -24,7 +24,7 @@ import okhttp3.Response;
 public class PayPersonActivity extends AppCompatActivity {
 
     private ArrayList<Account> accounts;
-    private List<Customer> people;
+    private ArrayList<Customer> people;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +90,8 @@ public class PayPersonActivity extends AppCompatActivity {
         if(result)
         {
             ListView lv2 = (ListView) findViewById(R.id.listView);
-            ArrayAdapter<Customer> arrayAdapter2 = new ArrayAdapter<Customer>(
-                    this, android.R.layout.simple_list_item_1, people
+            CustomBillerAdapter arrayAdapter2 = new CustomBillerAdapter(
+                    this, people
             );
             lv2.setAdapter(arrayAdapter2);
         }
@@ -150,7 +150,7 @@ public class PayPersonActivity extends AppCompatActivity {
         if(result)
         {
             ListView lv = (ListView) findViewById(R.id.listView2);
-            CustomAdapter arrayAdapter = new CustomAdapter(this, this.accounts);
+            CustomAccountAdapter arrayAdapter = new CustomAccountAdapter(this, this.accounts);
             lv.setAdapter(arrayAdapter);
 
         }
